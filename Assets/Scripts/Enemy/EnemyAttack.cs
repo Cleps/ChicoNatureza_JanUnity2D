@@ -10,6 +10,9 @@ public class EnemyAttack : MonoBehaviour
     private EnemyMove enemyMove;
 
     private GameObject axe;
+    private bool isCollidingWithPlayer = false;
+    public float axeThrowInterval = 2f; // Intervalo de tempo entre lançamentos de machado
+    public float raycastDistance = 5f; // Distância do Raycast
 
     void Start()
     {
@@ -18,7 +21,16 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
+        Color rayColor = CheckPlayerCollision();
 
+        // Desenhar o Raycast no editor da Unity
+        Vector2 direction = enemyMove.movingRight ? Vector2.right : Vector2.left;
+        Debug.DrawRay(transform.position, direction * raycastDistance, rayColor);
+
+        if (isCollidingWithPlayer)
+        {
+            StartCoroutine(InstatiateAxe());
+        }
     }
 
     IEnumerator stopPlayer()
@@ -30,9 +42,12 @@ public class EnemyAttack : MonoBehaviour
 
     IEnumerator InstatiateAxe()
     {
-        StartCoroutine(stopPlayer());
-        yield return new WaitForSeconds(2f);
-        ThrowAxe();
+        while (isCollidingWithPlayer)
+        {
+            StartCoroutine(stopPlayer());
+            yield return new WaitForSeconds(axeThrowInterval);
+            ThrowAxe();
+        }
     }
 
     void ThrowAxe()
@@ -45,27 +60,26 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    Color CheckPlayerCollision()
     {
-        if (other.CompareTag("Player") && IsFacingPlayer())
+        if (player == null) return Color.red;
+
+        Vector2 direction = enemyMove.movingRight ? Vector2.right : Vector2.left;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, raycastDistance);
+
+        foreach (RaycastHit2D hit in hits)
         {
-            StartCoroutine(InstatiateAxe());
+            if (hit.collider != null && hit.collider.CompareTag("Player"))
+            {
+                //Debug.Log("Player detected");
+                isCollidingWithPlayer = true;
+                return Color.blue;
+            }
         }
+        //Debug.Log("Player not detected");
+        isCollidingWithPlayer = false;
+        return Color.red;
     }
 
-    bool IsFacingPlayer()
-    {
-        if (player == null) return false;
 
-        Vector2 directionToPlayer = player.position - transform.position;
-        if (enemyMove.movingRight && directionToPlayer.x > 0)
-        {
-            return true;
-        }
-        else if (!enemyMove.movingRight && directionToPlayer.x < 0)
-        {
-            return true;
-        }
-        return false;
-    }
 }
