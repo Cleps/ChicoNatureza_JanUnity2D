@@ -8,15 +8,19 @@ public class EnemyAttack : MonoBehaviour
     public GameObject axePrefab;
     public Transform player; // Referência ao jogador
     private EnemyMove enemyMove;
+    private Animator animator;
 
     private GameObject axe;
     private bool isCollidingWithPlayer = false;
     public float axeThrowInterval = 2f; // Intervalo de tempo entre lançamentos de machado
     public float raycastDistance = 5f; // Distância do Raycast
 
+    private bool canThrowAxe = true; // Variável para controlar se o machado pode ser lançado
+
     void Start()
     {
         enemyMove = GetComponent<EnemyMove>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -52,12 +56,21 @@ public class EnemyAttack : MonoBehaviour
 
     void ThrowAxe()
     {
-        if (axe == null)
+        if (canThrowAxe)
         {
+            animator.SetTrigger("Attack");
             axe = Instantiate(axePrefab, transform.position, Quaternion.identity);
             axe.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyMove.movingRight ? 5 : -5, 0);
             Destroy(axe, 6f);
+            canThrowAxe = false;
+            StartCoroutine(ResetAxeThrow());
         }
+    }
+
+    IEnumerator ResetAxeThrow()
+    {
+        yield return new WaitForSeconds(axeThrowInterval);
+        canThrowAxe = true;
     }
 
     Color CheckPlayerCollision()
@@ -80,6 +93,4 @@ public class EnemyAttack : MonoBehaviour
         isCollidingWithPlayer = false;
         return Color.red;
     }
-
-
 }

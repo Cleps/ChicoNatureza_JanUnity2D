@@ -21,6 +21,7 @@ public class Axe : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
+            other.GetComponent<Player>().takeDamege();
         }
         else if (other.CompareTag("Ground"))
         {

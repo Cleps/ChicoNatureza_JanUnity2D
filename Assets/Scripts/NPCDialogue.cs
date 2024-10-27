@@ -23,10 +23,8 @@ public class NPCDialogue : MonoBehaviour
         if(dialoguePanel.activeSelf)
         {  
             GameObject.FindGameObjectWithTag("Player").GetComponent<Move>().canMove = false;
-        }else
-        {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Move>().canMove = true;
-        }	
+        }
+        	
 
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
         {
@@ -75,6 +73,7 @@ public class NPCDialogue : MonoBehaviour
             {
                 // Fecha o painel de diálogo e reseta o índice
                 dialoguePanel.SetActive(false);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Move>().canMove = true;
                 currentDialogueIndex = 0;
                 hasDialogueStarted = true;
             }

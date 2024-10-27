@@ -10,6 +10,7 @@ public class Move : MonoBehaviour
     public float groundCheckSize = 0.1f;
     public bool canMove = true;
     public bool canJump = true;
+    public bool isFacingRight;
 
     Animator anim;
 
@@ -76,12 +77,12 @@ public class Move : MonoBehaviour
         if (movimentoHorizontal < 0)
         {
             spriteRenderer.flipX = true;
-            //isFacingRight = false;
+            isFacingRight = true;
         }
         else if (movimentoHorizontal > 0)
         {
             spriteRenderer.flipX = false;
-            //isFacingRight = true;
+            isFacingRight = false;
         }
     }
 
