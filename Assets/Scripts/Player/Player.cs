@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
     public float damageImpulseForce = 5f; // Força do impulso ao tomar dano
 
+    public GameObject impactEffect;
     public bool canTakeDamage = true;
     private SpriteRenderer spriteRenderer;
 
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
             float direction = !GetComponent<Move>().isFacingRight ? -1 : 1; // Inverte a direção
             Vector2 damageImpulse = new Vector2(damageImpulseForce * direction, damageImpulseForce);
             rb.AddForce(damageImpulse, ForceMode2D.Impulse);
-
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
             UpdateLifeSlider();
 
             if (lives <= 0)
