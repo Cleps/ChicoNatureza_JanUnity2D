@@ -5,9 +5,13 @@ using UnityEngine;
 public class Axe : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool isInvisbleDamage = false;
     void Start()
     {
-        
+        if(isInvisbleDamage)
+        {
+            Destroy(gameObject, 0.1f);
+        }
     }
 
     // Update is called once per frame

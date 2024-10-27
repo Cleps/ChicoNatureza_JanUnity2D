@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02813ea4d8baa38499fa643fbe6afeb8
+guid: 5c4a518f87b0aef4cb275eed982ca0bb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,127 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GraveRobber_run_0
+      name: Indio 1_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 25
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 28
+        y: 34
+        width: 80
+        height: 151
+      alignment: 9
+      pivot: {x: 0.4875, y: 0.5033113}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37661ca7cd791554583b6f0ed79897bf
-      internalID: -947608065
+      spriteID: cf946c91e78ef5f4dafb846437a7aa1f
+      internalID: 1116380296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GraveRobber_run_1
+      name: Indio 1_1
       rect:
         serializedVersion: 2
-        x: 56
-        y: 0
-        width: 25
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 156
+        y: 34
+        width: 80
+        height: 148
+      alignment: 9
+      pivot: {x: 0.4875, y: 0.5135135}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 597789ed3c6994749acd551b22feeb72
-      internalID: -476829051
+      spriteID: d2be1a571f3298b41af8cfe6bd9416db
+      internalID: -649774978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GraveRobber_run_2
+      name: Indio 1_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 25
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 284
+        y: 34
+        width: 80
+        height: 147
+      alignment: 9
+      pivot: {x: 0.4875, y: 0.5170068}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f29d741cd9e7c364e910fb9438463af2
-      internalID: 1368914715
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GraveRobber_run_3
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 0
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b874a709678ec54baa9273d35bc1d09
-      internalID: 214001427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GraveRobber_run_4
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 26
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e8179357f361bf47b719ed4c81d0772
-      internalID: -1799628829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GraveRobber_run_5
-      rect:
-        serializedVersion: 2
-        x: 244
-        y: 0
-        width: 26
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff2f1232ee13c704dbb354147fd4c441
-      internalID: -854395389
+      spriteID: 5f82107ab9313be469416b49e5d7d6d3
+      internalID: -2044876998
       vertices: []
       indices: 
       edges: []
@@ -246,12 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GraveRobber_run_0: -947608065
-      GraveRobber_run_1: -476829051
-      GraveRobber_run_2: 1368914715
-      GraveRobber_run_3: 214001427
-      GraveRobber_run_4: -1799628829
-      GraveRobber_run_5: -854395389
+      Indio 1_0: 1116380296
+      Indio 1_1: -649774978
+      Indio 1_2: -2044876998
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

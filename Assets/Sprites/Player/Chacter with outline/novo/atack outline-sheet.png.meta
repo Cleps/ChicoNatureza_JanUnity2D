@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02813ea4d8baa38499fa643fbe6afeb8
+guid: 9ec69141fda7f5c419d30960c35a5050
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,127 +110,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GraveRobber_run_0
+      name: atack outline-sheet_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 25
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37661ca7cd791554583b6f0ed79897bf
-      internalID: -947608065
+      spriteID: fb69de5cf4704bc40b03c7f0ece9a9e7
+      internalID: -1200324350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GraveRobber_run_1
+      name: atack outline-sheet_1
       rect:
         serializedVersion: 2
-        x: 56
+        x: 34
         y: 0
-        width: 25
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 597789ed3c6994749acd551b22feeb72
-      internalID: -476829051
+      spriteID: e89bfaf673469f144b3f7cd1eae666df
+      internalID: -1025909813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GraveRobber_run_2
+      name: atack outline-sheet_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 68
         y: 0
-        width: 25
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f29d741cd9e7c364e910fb9438463af2
-      internalID: 1368914715
+      spriteID: 88e6c6cc8d8ab8e4bb6aefbdc5437ef1
+      internalID: 1537524371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GraveRobber_run_3
+      name: atack outline-sheet_3
       rect:
         serializedVersion: 2
-        x: 148
+        x: 102
         y: 0
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b874a709678ec54baa9273d35bc1d09
-      internalID: 214001427
+      spriteID: 4832d7ac329af534dbac77d075c41c33
+      internalID: -1797141815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GraveRobber_run_4
+      name: atack outline-sheet_4
       rect:
         serializedVersion: 2
-        x: 200
+        x: 136
         y: 0
-        width: 26
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e8179357f361bf47b719ed4c81d0772
-      internalID: -1799628829
+      spriteID: f18187237b43a244f8cec9bbdd410b51
+      internalID: -2123631294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GraveRobber_run_5
+      name: atack outline-sheet_5
       rect:
         serializedVersion: 2
-        x: 244
+        x: 170
         y: 0
-        width: 26
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff2f1232ee13c704dbb354147fd4c441
-      internalID: -854395389
+      spriteID: c71a0a28309709244a3a7ee170fd9a50
+      internalID: -1194513796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atack outline-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.32352942, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b9a74d25fd59c4c98ce17475380e76
+      internalID: -2035481179
       vertices: []
       indices: 
       edges: []
@@ -246,12 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GraveRobber_run_0: -947608065
-      GraveRobber_run_1: -476829051
-      GraveRobber_run_2: 1368914715
-      GraveRobber_run_3: 214001427
-      GraveRobber_run_4: -1799628829
-      GraveRobber_run_5: -854395389
+      atack outline-sheet_0: -1200324350
+      atack outline-sheet_1: -1025909813
+      atack outline-sheet_2: 1537524371
+      atack outline-sheet_3: -1797141815
+      atack outline-sheet_4: -2123631294
+      atack outline-sheet_5: -1194513796
+      atack outline-sheet_6: -2035481179
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

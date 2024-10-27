@@ -88,6 +88,7 @@ public class NPCDialogue : MonoBehaviour
             {
                 // Fecha o painel de diálogo e reseta o índice
                 dialoguePanel.SetActive(false);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Move>().canMove = true;
                 currentDialogueIndex = 0;
             }
         }
@@ -109,6 +110,7 @@ public class NPCDialogue : MonoBehaviour
             isPlayerInRange = false;
             other.GetComponent<Move>().canJump = true;
             dialoguePanel.SetActive(false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Move>().canMove = true;
             currentDialogueIndex = 0;
         }
     }
