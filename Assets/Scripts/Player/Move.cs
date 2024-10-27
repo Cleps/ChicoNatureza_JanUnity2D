@@ -13,6 +13,8 @@ public class Move : MonoBehaviour
     public bool isFacingRight;
 
     Animator anim;
+    AudioSource audioSource;
+    public AudioClip jumpSound;
 
     public GameObject groundCheck;
     public LayerMask groundLayer;
@@ -23,6 +25,7 @@ public class Move : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -66,6 +69,8 @@ public class Move : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             anim.SetTrigger("takeOff");
+            if(jumpSound != null)
+                audioSource.PlayOneShot(jumpSound);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }

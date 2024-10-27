@@ -14,12 +14,15 @@ public class LevelClear : MonoBehaviour
 
     private bool isNivelClear = false;
     private Player player;
+    private AudioSource audioSource;
+    public AudioClip levelClearSound;
 
     // Start is called before the first frame update
     void Start()
     {
         clearText.gameObject.SetActive(false);
         player = GameObject.Find("Player").GetComponent<Player>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +42,10 @@ public class LevelClear : MonoBehaviour
 
     void makeLevelClear(String nextLevelSceneName)
     {
+        if (levelClearSound != null)
+        {
+            audioSource.PlayOneShot(levelClearSound);
+        }
         Instantiate(transition, CanvasUI.transform);
         StartCoroutine(sceneLoadingDelay(nextLevelSceneName));
         isNivelClear = true;

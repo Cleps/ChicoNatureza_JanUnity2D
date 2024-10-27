@@ -8,10 +8,13 @@ public class MenuInicial : MonoBehaviour
 {
     public GameObject transition;
     public GameObject CanvasUI;
+
+    private AudioSource audioSource;
+    public AudioClip buttonSound;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +26,10 @@ public class MenuInicial : MonoBehaviour
     public void LoadScene1()
     {
         Instantiate(transition, CanvasUI.transform);
+        if (buttonSound != null)
+        {
+            audioSource.PlayOneShot(buttonSound);
+        }
         StartCoroutine(sceneLoadingDelay("Scene1"));
     }
 

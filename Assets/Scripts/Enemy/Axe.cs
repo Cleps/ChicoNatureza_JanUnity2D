@@ -6,18 +6,28 @@ public class Axe : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isInvisbleDamage = false;
+    private AudioSource audioSource;
+    public AudioClip axeSound;
     void Start()
     {
-        if(isInvisbleDamage)
+        audioSource = GetComponent<AudioSource>();
+        if (isInvisbleDamage)
         {
             Destroy(gameObject, 0.1f);
+        }
+        else
+        {
+            if (axeSound != null)
+            {
+                audioSource.PlayOneShot(axeSound);
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D other)

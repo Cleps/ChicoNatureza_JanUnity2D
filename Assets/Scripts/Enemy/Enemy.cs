@@ -13,12 +13,16 @@ public class Enemy : MonoBehaviour
     public bool canTakeDamage = true;
     private SpriteRenderer spriteRenderer;
 
+    private AudioSource audioSource;
+    public AudioClip damageSound;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,7 +42,8 @@ public class Enemy : MonoBehaviour
             float direction = isFacingRight ? -1 : 1; // Inverte a direção
             Vector2 damageImpulse = new Vector2(damageImpulseForce * direction, damageImpulseForce);
             rb.AddForce(damageImpulse, ForceMode2D.Impulse);
-
+            if(damageSound != null)
+                audioSource.PlayOneShot(damageSound);
             if (health <= 0)
             {
                 Die();

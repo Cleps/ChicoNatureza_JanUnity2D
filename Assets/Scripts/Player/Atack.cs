@@ -12,9 +12,13 @@ public class Attack : MonoBehaviour
     public float attackRange = 0.5f; // Alcance do ataque
     public LayerMask enemyLayers; // Camada dos inimigos
 
+    private AudioSource audioSource;
+    public AudioClip attackSound;
+
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +35,8 @@ public class Attack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isAttacking && GetComponent<Move>().isGrounded) // 0 is for left mouse button
         {
             anim.SetTrigger("attack");
+            if(attackSound != null)
+                audioSource.PlayOneShot(attackSound);
             StartCoroutine("animationAttack");
         }
     }

@@ -13,9 +13,13 @@ public class NPCDialogue : MonoBehaviour
     private bool isPlayerInRange = false; // Verifica se o jogador está na área de colisão
     private bool hasDialogueStarted = false; // Verifica se o diálogo já foi iniciado uma vez
 
+    private AudioSource audioSource;
+    public AudioClip dialogueSound;
+
     void Start()
     {
         dialoguePanel.SetActive(false); // Desativa o painel de diálogo no início
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -28,6 +32,8 @@ public class NPCDialogue : MonoBehaviour
 
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
         {
+            if(dialogueSound != null)
+                audioSource.PlayOneShot(dialogueSound);
             if (!dialoguePanel.activeInHierarchy)
             {
                 // Abre o painel de diálogo

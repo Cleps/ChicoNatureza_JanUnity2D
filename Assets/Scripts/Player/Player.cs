@@ -27,9 +27,16 @@ public class Player : MonoBehaviour
     public bool canTakeDamage = true;
     private SpriteRenderer spriteRenderer;
 
+    private AudioSource audioSource;
+    public AudioClip damageSound;
+    public AudioClip pickupFruitSound;
+    public AudioClip gameOverSound;
+
     internal void IncreaseCoins()
     {
         coins++;
+        if(pickupFruitSound != null)
+            audioSource.PlayOneShot(pickupFruitSound);
     }
 
     // Start is called before the first frame update
@@ -39,6 +46,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         UpdateLifeSlider();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -84,6 +92,12 @@ public class Player : MonoBehaviour
                     collider.enabled = false;
                 }
                 StartCoroutine("delayInGameOver");
+                if(gameOverSound != null)
+                    audioSource.PlayOneShot(gameOverSound);
+            }
+            else{
+                if(damageSound != null)
+                    audioSource.PlayOneShot(damageSound);
             }
             StartCoroutine("damageDelay");
             // Inicia a corrotina para fazer o sprite piscar
