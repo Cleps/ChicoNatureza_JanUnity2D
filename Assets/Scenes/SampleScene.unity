@@ -666,7 +666,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.3465652, y: 1.04712, z: -10}
+  m_LocalPosition: {x: -0.62, y: 0.52, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1437,7 +1437,7 @@ Transform:
   m_GameObject: {fileID: 831830159}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.07995, y: 0.8814149, z: -10.036044}
+  m_LocalPosition: {x: 0.6099496, y: -0.2685852, z: -10.036044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1957,6 +1957,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  isGrounded: 0
 --- !u!212 &1195000114
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2018,7 +2019,7 @@ Transform:
   m_GameObject: {fileID: 1195000110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.85, y: 1.19, z: 0}
+  m_LocalPosition: {x: -0.62, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2114,7 +2115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   attackDamage: 1
-  attackRange: -0.7
+  attackRange: -0.8
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -2685,10 +2686,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2375891708548597754, guid: c40e4c754ae856e4a9d7f9d8e2822bc1, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ff259cbd07c36f5488ec8e37305c0516, type: 2}
     - target: {fileID: 4481825127359925291, guid: c40e4c754ae856e4a9d7f9d8e2822bc1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2699,7 +2696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7836130830723394475, guid: c40e4c754ae856e4a9d7f9d8e2822bc1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8364498472449501911, guid: c40e4c754ae856e4a9d7f9d8e2822bc1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2740,6 +2737,14 @@ PrefabInstance:
     - target: {fileID: 8364498472449501911, guid: c40e4c754ae856e4a9d7f9d8e2822bc1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104540823127535191, guid: c40e4c754ae856e4a9d7f9d8e2822bc1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.59696007
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104540823127535191, guid: c40e4c754ae856e4a9d7f9d8e2822bc1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.013625145
       objectReference: {fileID: 0}
     - target: {fileID: 9117208185791001308, guid: c40e4c754ae856e4a9d7f9d8e2822bc1, type: 3}
       propertyPath: player
@@ -12768,10 +12773,6 @@ PrefabInstance:
     - target: {fileID: 7836130830723394475, guid: ba173b3137f5392418a048a7617efcf3, type: 3}
       propertyPath: m_Name
       value: Enemy_Woodcutter
-      objectReference: {fileID: 0}
-    - target: {fileID: 7836130830723394475, guid: ba173b3137f5392418a048a7617efcf3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8364498472449501911, guid: ba173b3137f5392418a048a7617efcf3, type: 3}
       propertyPath: m_LocalPosition.x

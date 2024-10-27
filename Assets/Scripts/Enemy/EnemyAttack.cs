@@ -77,7 +77,7 @@ public class EnemyAttack : MonoBehaviour
 
     void ThrowAxe()
     {
-        if (canThrowAxe)
+        if (canThrowAxe && GetComponent<Enemy>().canTakeDamage)
         {
             canThrowAxe = false;
             animator.SetTrigger("Attack");

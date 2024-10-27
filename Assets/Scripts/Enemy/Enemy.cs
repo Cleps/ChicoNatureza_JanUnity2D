@@ -10,13 +10,15 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
 
-    bool canTakeDamage = true;
+    public bool canTakeDamage = true;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
                 Die();
             }
             StartCoroutine(damageCooldown());
+            StartCoroutine(BlinkSprite());
         }
     }
 
@@ -63,5 +66,16 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 3);
         canTakeDamage = false;
+    }
+
+    IEnumerator BlinkSprite()
+    {
+        while (!canTakeDamage)
+        {
+            spriteRenderer.color = Color.gray; // Muda a cor para cinza
+            yield return new WaitForSeconds(0.1f); // Espera 0.1 segundos
+            spriteRenderer.color = Color.white; // Muda a cor para normal
+            yield return new WaitForSeconds(0.1f); // Espera 0.1 segundos
+        }
     }
 }

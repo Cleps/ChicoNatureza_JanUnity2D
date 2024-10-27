@@ -16,7 +16,7 @@ public class Move : MonoBehaviour
 
     public GameObject groundCheck;
     public LayerMask groundLayer;
-    private bool isGrounded;
+    public bool isGrounded;
     float movimentoHorizontal;
 
     // Start is called before the first frame update
