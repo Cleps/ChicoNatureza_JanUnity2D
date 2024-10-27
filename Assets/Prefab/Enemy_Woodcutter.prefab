@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damageImpulseForce: 1
+  canTakeDamage: 1
 --- !u!114 &4827236358003495300
 MonoBehaviour:
   m_ObjectHideFlags: 0

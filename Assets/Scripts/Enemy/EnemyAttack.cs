@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     public GameObject axePrefab;
-    public Transform player; // Referência ao jogador
+    private Transform player; // Referência ao jogador
     private EnemyMove enemyMove;
     private Animator animator;
 
@@ -27,6 +27,7 @@ public class EnemyAttack : MonoBehaviour
     {
         enemyMove = GetComponent<EnemyMove>();
         animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()

@@ -18,7 +18,7 @@ public class Coin : MonoBehaviour
             Destroy(gameObject);
             if (coinPickup != null)
             {
-                GameObject coinAnim = Instantiate(coinPickup);
+                GameObject coinAnim = Instantiate(coinPickup, transform.position, Quaternion.identity);
                 Destroy(coinAnim, 1f);
             }
         }

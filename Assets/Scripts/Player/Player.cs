@@ -7,8 +7,13 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
+    public int totalLives = 10;
     public int lives = 3;
     public int coins = 0;
+
+    public Vector3 InitialPosition;
+    public GameObject GameOverObject;
+    public Transform UIparentObject;
 
     public TMP_Text coinsText;
     public Slider lifeSlider; // Slider para representar a vida do jogador
@@ -45,7 +50,7 @@ public class Player : MonoBehaviour
     {
         if (coinsText != null)
         {
-            coinsText.text = "Coletaveis: " + coins.ToString();
+            coinsText.text = "Coletados: " + coins.ToString();
         }
     }
 
@@ -68,7 +73,7 @@ public class Player : MonoBehaviour
 
             if (lives <= 0)
             {
-                print("Game Over");
+                makeGameOver();
             }
             StartCoroutine("damageDelay");
             // Inicia a corrotina para fazer o sprite piscar
@@ -94,6 +99,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    public IEnumerator BlinkSpriteTimer(float blinkTime)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < blinkTime)
+        {
+            spriteRenderer.color = Color.gray; // Muda a cor para cinza
+            yield return new WaitForSeconds(0.1f); // Espera 0.1 segundos
+            spriteRenderer.color = Color.white; // Muda a cor para normal
+            yield return new WaitForSeconds(0.1f); // Espera 0.1 segundos
+            elapsedTime += 0.2f; // Incrementa o tempo decorrido
+        }
+    }
+
     void UpdateLifeSlider()
     {
         if (lifeSlider != null)
@@ -108,6 +126,21 @@ public class Player : MonoBehaviour
         print("Stopping Player");
         yield return new WaitForSeconds(0.3f);
         GetComponent<Move>().canMove = true;
+    }
+
+
+    public void makeGameOver()
+    {
+        print("Game Over");
+        Instantiate(GameOverObject, UIparentObject); // Instancia o objeto como filho do objeto especificado
+        StartCoroutine(gameOverAnimation());
+    }
+
+    IEnumerator gameOverAnimation()
+    {
+        yield return new WaitForSeconds(2f);
+        lives = totalLives;
+        transform.position = InitialPosition;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
