@@ -73,7 +73,16 @@ public class Player : MonoBehaviour
 
             if (lives <= 0)
             {
-                makeGameOver();
+                GetComponent<Move>().enabled = false;
+                GetComponent<Attack>().enabled = false;
+
+                // Desativar dois CapsuleCollider2D
+                CapsuleCollider2D[] colliders = GetComponents<CapsuleCollider2D>();
+                foreach (CapsuleCollider2D collider in colliders)
+                {
+                    collider.enabled = false;
+                }
+                StartCoroutine("delayInGameOver");
             }
             StartCoroutine("damageDelay");
             // Inicia a corrotina para fazer o sprite piscar
@@ -81,10 +90,17 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator delayInGameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        makeGameOver();
+    }
+
+
     IEnumerator damageDelay()
     {
         canTakeDamage = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         canTakeDamage = true;
     }
 
@@ -128,7 +144,6 @@ public class Player : MonoBehaviour
         GetComponent<Move>().canMove = true;
     }
 
-
     public void makeGameOver()
     {
         print("Game Over");
@@ -140,6 +155,15 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         lives = totalLives;
+        GetComponent<Move>().enabled = true;
+        GetComponent<Attack>().enabled = true;
+        // Desativar dois CapsuleCollider2D
+        CapsuleCollider2D[] colliders = GetComponents<CapsuleCollider2D>();
+        foreach (CapsuleCollider2D collider in colliders)
+        {
+            collider.enabled = true;
+        }
+        UpdateLifeSlider();
         transform.position = InitialPosition;
     }
 

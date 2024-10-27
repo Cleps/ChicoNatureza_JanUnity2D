@@ -109,7 +109,8 @@ public class NPCDialogue : MonoBehaviour
         {
             isPlayerInRange = false;
             other.GetComponent<Move>().canJump = true;
-            dialoguePanel.SetActive(false);
+            if(dialoguePanel.activeSelf)
+                dialoguePanel.SetActive(false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Move>().canMove = true;
             currentDialogueIndex = 0;
         }

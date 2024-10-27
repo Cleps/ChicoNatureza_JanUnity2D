@@ -28,7 +28,7 @@ public class Attack : MonoBehaviour
 
     void PlayerAttack()
     {
-        if (Input.GetMouseButtonDown(0) && !isAttacking) // 0 is for left mouse button
+        if (Input.GetMouseButtonDown(0) && !isAttacking && GetComponent<Move>().isGrounded) // 0 is for left mouse button
         {
             anim.SetTrigger("attack");
             StartCoroutine("animationAttack");

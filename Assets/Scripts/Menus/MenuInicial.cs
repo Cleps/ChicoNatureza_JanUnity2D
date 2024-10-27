@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuInicial : MonoBehaviour
 {
+    public GameObject transition;
+    public GameObject CanvasUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,14 @@ public class MenuInicial : MonoBehaviour
 
     public void LoadScene1()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Scene1");
+        Instantiate(transition, CanvasUI.transform);
+        StartCoroutine(sceneLoadingDelay("Scene1"));
+    }
+
+    IEnumerator sceneLoadingDelay(String SceneName)
+    {
+        yield return new WaitForSeconds(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(SceneName);
     }
 
     public void ExitGame()
