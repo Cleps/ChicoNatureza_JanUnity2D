@@ -40,4 +40,20 @@ public class PlataformaMovel : MonoBehaviour
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(transform); // Faz o jogador se tornar filho da plataforma
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null); // Remove o jogador como filho da plataforma
+        }
+    }
 }

@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     internal void IncreaseCoins()
     {
         coins++;
-        if(pickupFruitSound != null)
+        if (pickupFruitSound != null)
             audioSource.PlayOneShot(pickupFruitSound);
     }
 
@@ -92,11 +92,12 @@ public class Player : MonoBehaviour
                     collider.enabled = false;
                 }
                 StartCoroutine("delayInGameOver");
-                if(gameOverSound != null)
-                    audioSource.PlayOneShot(gameOverSound);
+                if (damageSound != null)
+                    audioSource.PlayOneShot(damageSound);
             }
-            else{
-                if(damageSound != null)
+            else
+            {
+                if (damageSound != null)
                     audioSource.PlayOneShot(damageSound);
             }
             StartCoroutine("damageDelay");
@@ -162,7 +163,10 @@ public class Player : MonoBehaviour
     public void makeGameOver()
     {
         print("Game Over");
+        if (gameOverSound != null)
+            audioSource.PlayOneShot(gameOverSound);
         Instantiate(GameOverObject, UIparentObject); // Instancia o objeto como filho do objeto especificado
+        GetComponent<SpriteRenderer>().sortingOrder = -4;
         StartCoroutine(gameOverAnimation());
     }
 
@@ -170,6 +174,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         lives = totalLives;
+        GetComponent<SpriteRenderer>().sortingOrder = 1;
         GetComponent<Move>().enabled = true;
         GetComponent<Attack>().enabled = true;
         // Desativar dois CapsuleCollider2D

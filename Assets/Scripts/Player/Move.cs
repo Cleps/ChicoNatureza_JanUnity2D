@@ -6,6 +6,7 @@ public class Move : MonoBehaviour
 {
     // Variável pública para definir a velocidade do movimento
     public float velocidade = 5f;
+    public float velocidadeBase = 5f;
     public float jumpForce = 5f;
     public float groundCheckSize = 0.1f;
     public bool canMove = true;
@@ -34,7 +35,7 @@ public class Move : MonoBehaviour
         if (canMove)
         {
             Movement();
-            if(canJump)
+            if (canJump)
                 Jump();
         }
         CheckGround();
@@ -69,7 +70,7 @@ public class Move : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             anim.SetTrigger("takeOff");
-            if(jumpSound != null)
+            if (jumpSound != null)
                 audioSource.PlayOneShot(jumpSound);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }

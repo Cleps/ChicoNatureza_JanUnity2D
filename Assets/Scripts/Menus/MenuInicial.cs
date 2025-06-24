@@ -41,6 +41,18 @@ public class MenuInicial : MonoBehaviour
 
     public void ExitGame()
     {
+        if (buttonSound != null)
+        {
+            audioSource.PlayOneShot(buttonSound);
+        }
         Application.Quit();
+    }
+
+    public void PlaySound()
+    {
+        if (buttonSound != null)
+        {
+            audioSource.PlayOneShot(buttonSound);
+        }
     }
 }

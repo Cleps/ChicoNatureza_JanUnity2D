@@ -105,6 +105,7 @@ MonoBehaviour:
   health: 3
   damageImpulseForce: 1
   canTakeDamage: 1
+  damageSound: {fileID: 0}
 --- !u!114 &4827236358003495300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axePrefab: {fileID: 4505608895076318395, guid: 4adf69e22c5d4e24e9816e84d53b89e4, type: 3}
-  player: {fileID: 0}
-  axeVelocity: 4
+  axeVelocity: 3
   axeThrowInterval: 3
   raycastDistance: 5
   preThrowDelay: 1.5

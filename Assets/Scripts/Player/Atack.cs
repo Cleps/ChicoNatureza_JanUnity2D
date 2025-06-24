@@ -32,7 +32,7 @@ public class Attack : MonoBehaviour
 
     void PlayerAttack()
     {
-        if (Input.GetMouseButtonDown(0) && !isAttacking && GetComponent<Move>().isGrounded) // 0 is for left mouse button
+        if (Input.GetMouseButtonDown(0) && !isAttacking)  // && GetComponent<Move>().isGrounded // 0 is for left mouse button
         {
             anim.SetTrigger("attack");
             if(attackSound != null)
@@ -46,6 +46,7 @@ public class Attack : MonoBehaviour
     IEnumerator animationAttack()
     {
         GetComponent<Move>().canMove = false;
+        //GetComponent<Move>().velocidade = GetComponent<Move>().velocidade / 2;
         isAttacking = true;
         // Detectar inimigos no alcance do ataque usando Raycast
         RaycastHit2D[] hitEnemies = Physics2D.RaycastAll(transform.position, direction, attackRange, enemyLayers);
@@ -73,6 +74,7 @@ public class Attack : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         GetComponent<Move>().canMove = true;
+        //GetComponent<Move>().velocidade = GetComponent<Move>().velocidadeBase;
         isAttacking = false;
     }
 
