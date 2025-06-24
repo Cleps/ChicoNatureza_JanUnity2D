@@ -26,11 +26,16 @@ public class NPCDialogue : MonoBehaviour
     private bool isChoosingOption = false;
     private int currentOptionIndex = 0;
 
-    private bool isOptionDialogue = false; // se estamos lendo diálogos de uma opção
-    private int currentOptionDialogueIndex = 0; // índice da fala da opção atual
+    private bool isOptionDialogue = false;
+    private int currentOptionDialogueIndex = 0;
 
     private AudioSource audioSource;
     public AudioClip dialogueSound;
+
+    // NOVO: salvar última opção escolhida
+    private bool hasChosenOption = false;
+    private int lastOptionIndex = -1;
+    private int lastOptionDialogueIndex = 0;
 
     void Start()
     {
@@ -52,7 +57,10 @@ public class NPCDialogue : MonoBehaviour
             if (!dialoguePanel.activeInHierarchy)
             {
                 dialoguePanel.SetActive(true);
-                ShowDialogue();
+                if (hasChosenOption)
+                    ContinueLastOptionDialogue(); // Se já escolheu uma opção antes, continua ela
+                else
+                    ShowDialogue(); // Senão, começa diálogo normal
             }
             else
             {
@@ -135,6 +143,11 @@ public class NPCDialogue : MonoBehaviour
         isOptionDialogue = true;
         currentOptionDialogueIndex = 0;
 
+        // Salvar a opção escolhida
+        hasChosenOption = true;
+        lastOptionIndex = currentOptionIndex;
+        lastOptionDialogueIndex = 0;
+
         foreach (var txt in optionTexts)
             txt.gameObject.SetActive(false);
 
@@ -154,8 +167,22 @@ public class NPCDialogue : MonoBehaviour
         else
         {
             isOptionDialogue = false;
+
+            // Salvar o ponto onde o diálogo terminou
+            lastOptionDialogueIndex = options[currentOptionIndex].optionDialogues.Count - 1;
+
             EndDialogue();
         }
+    }
+
+    // NOVO: continuar o último diálogo da opção escolhida
+    void ContinueLastOptionDialogue()
+    {
+        isOptionDialogue = true;
+        currentOptionIndex = lastOptionIndex;
+        currentOptionDialogueIndex = 0;
+
+        dialogueText.text = options[currentOptionIndex].optionDialogues[currentOptionDialogueIndex];
     }
 
     void EndDialogue()
@@ -169,7 +196,6 @@ public class NPCDialogue : MonoBehaviour
     {
         currentDialogueIndex = 0;
         isChoosingOption = false;
-        currentOptionIndex = 0;
         isOptionDialogue = false;
         currentOptionDialogueIndex = 0;
 
@@ -178,6 +204,7 @@ public class NPCDialogue : MonoBehaviour
             txt.gameObject.SetActive(false);
         }
         choosePanel.SetActive(false);
+        // NÃO resetar hasChosenOption, lastOptionIndex, lastOptionDialogueIndex
     }
 
     void OnTriggerEnter2D(Collider2D other)
