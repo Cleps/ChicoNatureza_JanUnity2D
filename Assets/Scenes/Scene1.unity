@@ -8045,6 +8045,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1195000115}
   projetilVelocidade: 10
   tempoDeRecarga: 1
+  shootSound: {fileID: 0}
 --- !u!4 &1203683559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5141479680821794902, guid: 5c4c62ab22792c24498bc4d6db788409, type: 3}
