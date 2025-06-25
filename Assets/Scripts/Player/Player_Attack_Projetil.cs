@@ -12,6 +12,12 @@ public class Player_Attack_Projetil : MonoBehaviour
     private bool viradoDireita = true; // Controla a direção que o player está olhando
     private float tempoProximoTiro = 0f; // Controle interno do delay
 
+    private AudioSource audioSource;
+    public AudioClip shootSound;
+
+
+    private Animator anim;
+
     void Start()
     {
         // Inicializa o spawnPoint se não estiver definido
@@ -19,6 +25,8 @@ public class Player_Attack_Projetil : MonoBehaviour
         {
             spawnPoint = transform; // Usa a posição do player como ponto de spawn
         }
+        anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -32,7 +40,12 @@ public class Player_Attack_Projetil : MonoBehaviour
         // Atira ao clicar com o botão direito e respeitando o tempo de recarga
         if (Input.GetMouseButtonDown(1) && Time.time >= tempoProximoTiro)
         {
-            Atirar();
+            // Atirar();
+            Invoke("Atirar", 0.1f); // Chama Atirar com um pequeno delay para sincronizar com a animação
+            GetComponent<Move>().canMove = false;
+            anim.SetTrigger("attackShoot");
+            if (shootSound != null)
+                audioSource.PlayOneShot(shootSound);
             tempoProximoTiro = Time.time + tempoDeRecarga; // Atualiza o tempo do próximo tiro
         }
     }
@@ -48,5 +61,11 @@ public class Player_Attack_Projetil : MonoBehaviour
             float direcao = viradoDireita ? 1f : -1f;
             rb.velocity = new Vector2(direcao * projetilVelocidade, 0f);
         }
+        Invoke("canMoveTrue", 0.1f); // Permite o movimento do player após atirar
+    }
+
+    void canMoveTrue()
+    {
+        GetComponent<Move>().canMove = true; // Permite o movimento do player após atirar
     }
 }
